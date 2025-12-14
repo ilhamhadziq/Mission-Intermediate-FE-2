@@ -6,3 +6,10 @@
 body{
     background-color: #FFFDF3;
 }
+.page {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 10%; /* ini space kanan kiri di gambar */
+}
+
+
