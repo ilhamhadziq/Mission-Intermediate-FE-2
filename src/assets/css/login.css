@@ -1,0 +1,155 @@
+header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 56px;
+    background-color: white;
+    border-bottom: 1px solid #3A35411F;
+}
+
+header img{
+    margin-left: 4%;
+    max-height: 100%;
+    height: auto;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background-color: #FFFDF3;
+}
+.login-card{
+    border-radius: 5px;
+    background-color: white;
+    padding: 36px;
+    width: 100%;
+    max-width: 590px;
+    border: 1px solid #F1F1F1;
+    margin: 20px 35px;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+} 
+.login-tittle{
+  font-family: "Poppins", Arial;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 32px;
+  text-align: center;
+}
+.login-tagline{
+  font-family: DM Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  text-align: center;
+  color: #333333AD;
+}
+.login-email p, .login-password p{
+  font-family: DM Sans;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  color: #333333AD;
+}
+.required{
+  color: red;
+}
+.login-email, .login-password,.email, .password, .login, .register, .google{
+  width: 100%;
+}
+.login-password{
+  margin-top: 10px;
+  position: relative;
+}
+.eye{
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  cursor: pointer;
+  width: 24px;
+}
+.email, .password{
+  height: 48px;
+  border: none;
+  outline: none;
+  border: 1px solid #F1F1F1;
+  border-radius: 10px;
+  padding-left: 14px; 
+}
+.login, .register,.google{
+  height: 42px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.login{
+  background-color: #3ECF4C;
+  color: white;
+}
+.register{
+  background-color: #E2FCD9CC;
+  color: #3ECF4C;
+}
+.forget{
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+.forget a{
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #4A505C;
+}
+.atau {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px; /* jarak antar elemen */
+  margin-top: 10px;
+  color: #333333AD;
+}
+
+.atau hr {
+  flex: 1;
+  border: none;
+  border-top: 1px solid #F1F1F1; /* garis */
+}
+.google{
+  background-color: white;
+  border: 1px solid #F1F1F1;
+}
+.google-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-height: 80%;
+  gap: 10px;
+}
+.google img{
+  height: 25px;
+}
+
+@media (max-width: 768px) {
+  header {
+     /* bayangan di bawah header */
+     box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+     position: relative;
+  }
+  .login-tittle{
+    font-size: 24px;
+  }
+  .login-email p, .login-password p, .login-tagline,  .forget a, .atau span, .login, .register{
+    font-size: 14px;
+  }
+}
+
