@@ -1,47 +1,46 @@
-export default function CourseCard() {
+export default function CourseCard({ course, role, onDelete, onEdit }) {
+  const safeRating = Math.min(5, Math.max(0, Math.round(course.rating)));
   return (
     <div className="card">
 
-      {/* Thumbnail */}
       <div className="thumbnail-row">
-        <img
-          src="/src/assets/images/content-1.jpg"
-          alt="course"
-          className="thumbnail"
-        />
+        <img src={course.thumbnail} alt="course" className="thumbnail" />
       </div>
 
-      {/* RIGHT CONTENT */}
       <div className="card-content">
 
-        {/* Title & desc */}
         <div className="info-tittle">
-          <h3>Big 4 Auditor Financial Analyst</h3>
-          <p>
-            Mulai transformasi dengan instruktur profesional, harga yang
-            terjangkau, dan kurikulum terbaik
-          </p>
+          <h3>{course.title}</h3>
+          <p>{course.description}</p>
         </div>
 
-        {/* Mentor */}
         <div className="info-acc">
-          <img src="/src/assets/profiles/1.png" alt="mentor" />
+          <img src={course.mentorImage} alt="mentor" />
           <div>
-            <p className="profil">Jenna Ortega</p>
+            <p className="profil">{course.mentor}</p>
             <p className="position">
-              Senior Accountant <span className="gojek">Gojek</span>
+              {course.position} <span className="gojek">{course.company}</span>
             </p>
           </div>
         </div>
 
-        {/* Footer */}
         <div className="detail">
           <div className="detail-info">
-            <div className="rating"></div>
-            <p>4.9 (120)</p>
+            <div className="rating">
+              {"★".repeat(safeRating)}
+              {"☆".repeat(5 - safeRating)}
+            </div>
           </div>
-          <div className="cost">Rp 300K</div>
+          <div className="cost">Rp {course.price}</div>
         </div>
+
+        {/* ADMIN ONLY */}
+        {role === "admin" && (
+          <div className="admin-action">
+            <button onClick={() => onEdit(course)}>Edit</button>
+            <button onClick={() => onDelete(course.id)}>Hapus</button>
+          </div>
+        )}
 
       </div>
     </div>

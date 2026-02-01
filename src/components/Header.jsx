@@ -13,15 +13,30 @@ export default function Header() {
           className="logo"
         />
 
+        {/* DESKTOP */}
         <div className="header-right desktop">
           <p>Kategori</p>
-          <img
-            src="/src/assets/images/user.png"
-            alt="profile"
-            className="profile"
-          />
+
+          <div className="profile-wrapper">
+            <img
+              src="/src/assets/images/user.png"
+              alt="profile"
+              className="profile"
+              onClick={() => setOpen(!open)}
+            />
+
+            {open && (
+              <div className="profile-dropdown">
+                <p onClick={() => setOpen(false)}>Profil Saya</p>
+                <p className="logout" onClick={() => setOpen(false)}>
+                  Keluar
+                </p>
+              </div>
+            )}
+          </div>
         </div>
 
+        {/* MOBILE */}
         <img
           src="/src/assets/icons/menu.png"
           alt="menu"
@@ -30,7 +45,21 @@ export default function Header() {
         />
       </div>
 
-      {/* sidebar tetap di luar container */}
+      {/* MOBILE SIDEBAR */}
+      {open && (
+        <div className="sidebar mobile">
+          <div className="sidebar-header">
+            <span onClick={() => setOpen(false)}>✕</span>
+          </div>
+
+          <div className="sidebar-content">
+            <p onClick={() => setOpen(false)}>Profil Saya</p>
+            <p className="logout" onClick={() => setOpen(false)}>
+              Keluar
+            </p>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

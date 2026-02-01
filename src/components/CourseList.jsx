@@ -1,15 +1,15 @@
+import CourseCard from "./CourseCard";
 import "../assets/css/course.css";
-export default function CourseList({ children }) {
+
+export default function CourseList({ courses, role, onDelete, onEdit }) {
   return (
     <section className="course">
-      
-      {/* TITLE */}
+
       <div className="tittle">
         <h2>Koleksi Video Pembelajaran Unggulan</h2>
         <p>Jelajahi Dunia Pengetahuan Melalui Pilihan Kami</p>
       </div>
 
-      {/* NAV TABS */}
       <nav>
         <ul>
           <li>Semua Kelas</li>
@@ -20,17 +20,16 @@ export default function CourseList({ children }) {
         </ul>
       </nav>
 
-      {/* GRID */}
       <div className="grid-cards">
-        {children}
-        {children}
-        {children}
-        {children}
-        {children}
-        {children}
-        {children}
-        {children}
-        {children}
+        {courses.map(course => (
+          <CourseCard
+            key={course.id}
+            course={course}
+            role={role}
+            onDelete={onDelete}
+            onEdit={onEdit}
+          />
+        ))}
       </div>
 
     </section>
