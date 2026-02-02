@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../assets/css/header.css";
 
-export default function Header() {
+export default function Header({onProfileClick}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -24,14 +24,20 @@ export default function Header() {
               className="profile"
               onClick={() => setOpen(!open)}
             />
-
+            
             {open && (
               <div className="profile-dropdown">
-                <p onClick={() => setOpen(false)}>Profil Saya</p>
+                <p onClick={() => {
+                  onProfileClick();
+                  setOpen(false);
+                }}>
+                  Profil Saya
+                </p>
                 <p className="logout" onClick={() => setOpen(false)}>
                   Keluar
                 </p>
               </div>
+              
             )}
           </div>
         </div>
@@ -49,16 +55,23 @@ export default function Header() {
       {open && (
         <div className="sidebar mobile">
           <div className="sidebar-header">
-            <span onClick={() => setOpen(false)}>✕</span>
+            <span onClick={() => 
+              setOpen(false)}>✕</span>
           </div>
 
           <div className="sidebar-content">
-            <p onClick={() => setOpen(false)}>Profil Saya</p>
+            <p onClick={() => {
+                  onProfileClick();
+                  setOpen(false);
+                }}>
+                  Profil Saya
+                </p>
             <p className="logout" onClick={() => setOpen(false)}>
               Keluar
             </p>
           </div>
         </div>
+        
       )}
     </header>
   );

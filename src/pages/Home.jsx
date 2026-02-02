@@ -5,12 +5,15 @@ import CourseList from "../components/CourseList";
 import AdminCourseForm from "../components/AdminCourseForm";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
+import ProfilePage from "../components/Profile";
 
 export default function Home() {
   const [role] = useState("admin"); // nanti diganti dari login
   const [courses, setCourses] = useState([]); // AWALNYA KOSONG
   const [editingCourse, setEditingCourse] = useState(null);
   const formRef = useRef(null);
+  const [view, setView] = useState("home");
+
 
 
 
@@ -41,32 +44,44 @@ export default function Home() {
 
 
   return (
-    <>
-      <Header />
-      <div className="page">
-        <Hero />
+  <>
+    <Header onProfileClick={() => setView("profile")} />
 
-        {role === "admin" && (
-          <div ref={formRef}>
-          <AdminCourseForm
-            onAdd={handleAddCourse}
-            onUpdate={handleUpdate}
-            editingCourse={editingCourse}
+    <div className="page">
+
+      {view === "home" && (
+        <>
+          <Hero />
+
+          {role === "admin" && (
+            <div ref={formRef}>
+              <AdminCourseForm
+                onAdd={handleAddCourse}
+                onUpdate={handleUpdate}
+                editingCourse={editingCourse}
+              />
+            </div>
+          )}
+
+          <CourseList
+            courses={courses}
+            role={role}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
           />
-          </div>
-        )}
 
+          <Banner />
+        </>
+      )}
 
-        <CourseList
-          courses={courses}
-          role={role}
-          onDelete={handleDelete}
-          onEdit={handleEdit}
-        />
+      {view === "profile" && (
+        <ProfilePage onBack={() => setView("home")} />
+      )}
 
-        <Banner />
-      </div>
-      <Footer />
-    </>
-  );
+    </div>
+
+    <Footer />
+  </>
+);
+
 }

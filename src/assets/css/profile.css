@@ -1,0 +1,191 @@
+/* =========================
+   BASE
+========================= */
+.profile-page {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 24px;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.profile-layout {
+  display: flex;
+  gap: 24px;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.profile-sidebar {
+  width: 240px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.sidebar-item {
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #aaa;
+  text-align: center;
+}
+
+.sidebar-item.active {
+  background: #fff7e6;
+  border: 1px solid #facc15;
+  color: #f59e0b;
+}
+
+/* =========================
+   CONTENT
+========================= */
+.profile-content {
+  flex: 1;
+}
+
+.profile-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* =========================
+   HEADER PROFIL
+========================= */
+.profile-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.profile-header img {
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+}
+
+.profile-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.profile-header p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.change-photo {
+  color: #ef4444;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* =========================
+   FORM (DESKTOP)
+========================= */
+.profile-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.3;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-save {
+  grid-column: span 2;
+  margin-top: 16px;
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* =========================
+   MOBILE FIX (FINAL)
+========================= */
+@media (max-width: 768px) {
+
+  /* page */
+  .profile-page {
+    width: 92%;
+    margin: 20px auto;
+    padding-bottom: 60px;
+  }
+
+  /* layout */
+  .profile-layout {
+    flex-direction: column;
+  }
+
+  /* sidebar jadi tab */
+  .profile-sidebar {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 8px;
+  }
+
+  /* header stack */
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .profile-header img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .profile-header h3 {
+    font-size: 16px;
+  }
+
+  .profile-header p {
+    font-size: 13px;
+  }
+
+  /* ===== INI KUNCI UTAMA ===== */
+  .profile-form {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-form .form-group {
+    grid-column: 1 / -1;
+  }
+
+  .profile-form .btn-save {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}
